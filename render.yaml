@@ -1,0 +1,11 @@
+services:
+  - type: worker
+    name: discord-vc-247
+    env: python
+    buildCommand: apt-get update && apt-get install -y ffmpeg && pip install -r requirements.txt
+    startCommand: python main.py
+    envVars:
+      - key: DISCORD_TOKEN
+        sync: false  # Add in dashboard
+      - key: CHANNEL_ID
+        sync: false  # Add in dashboard
